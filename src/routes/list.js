@@ -1,5 +1,5 @@
 module.exports = function(app){
-    app.get('/lists', async function(req, res){
+    app.get('/list', async function(req, res){
         let model = [
             'two', 'three'
         ];

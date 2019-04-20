@@ -2,9 +2,10 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { populateList } from './../actions/list';
 
+
 class View extends React.Component {
 
-    loadList(){
+    async loadList(){
         populateList();
     }
 

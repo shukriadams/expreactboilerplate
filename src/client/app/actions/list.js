@@ -1,8 +1,9 @@
 import store from './../store/store';
-import ajax from './../helpers/ajax';
+import { getJsonAsync }  from './../helpers/ajax';
 
-let populateList = function(){ 
-    return store.dispatch({ type: 'POPULATE_LIST', items : [ 'one', 'two'] }); 
+let populateList = async function(){ 
+    let list = await getJsonAsync('/list');
+    return store.dispatch({ type: 'POPULATE_LIST', items : list }); 
 } 
 
 export {
