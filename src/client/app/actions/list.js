@@ -1,5 +1,5 @@
 import store from './../store/store';
-import { getJsonAsync }  from './../helpers/ajax';
+import { getJsonAsync } from './../helpers/ajax';
 
 let populateList = async function(){ 
     let list = await getJsonAsync('/list');

@@ -13,6 +13,7 @@ class View extends React.Component {
         return(
             <Fragment>
                 <button onClick={this.loadList.bind(this)}>Load list</button>
+
                 <ul>
                     {
                         this.props.items.map((item)=>{
@@ -24,11 +25,11 @@ class View extends React.Component {
                         })
                     }
                 </ul>
+                
             </Fragment>
         );
     }
 }
-
 
 export default connect(
     function (state) {
@@ -36,5 +37,4 @@ export default connect(
             items : state.list.items
         }
     }
-
 )(View);

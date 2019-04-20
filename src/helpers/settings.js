@@ -3,6 +3,7 @@ let process = require('process');
 // defaults
 let settings = {
     port : 3000,
+    poolSize : 10,
     forceReloadViews : false
 };
 
