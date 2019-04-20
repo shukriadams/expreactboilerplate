@@ -1,3 +1,6 @@
+// apply custom .env settings
+require('custom-env').env();
+
 let Express = require('express'),
     fs = require('fs'),
     app = Express(),
@@ -13,8 +16,10 @@ let Express = require('express'),
         routes(app);
     }
 
-    // serve the contents of the client folder as static files
+    // there are two static folders - client is for single page app, public is 
+    // for direct express files
     app.use(Express.static('./client'));
+    app.use(Express.static('./public'));
 
     app.listen(settings.port);
 

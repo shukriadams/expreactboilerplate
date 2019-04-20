@@ -3,11 +3,12 @@ let Handlebars = require('handlebars'),
     pages = null,
     views,
     path = require('path'),
+    settings = require('./settings'),
     layouts = require('handlebars-layouts');
 
 function findViews(root){
-    let result = [];
-    
+    let views = [];
+
     function process(root){
         let items = fs.readdirSync(root);
 
@@ -16,12 +17,12 @@ function findViews(root){
             if (fs.statSync(file).isDirectory())
                 process(file)
             else
-                result.push(file);
+            views.push(file);
         }
     }
 
     process(root);
-    return result;
+    return views;
 }    
 
 

@@ -1,7 +1,17 @@
-{{#extend "layout"}}
-    {{#content "body"}}
-        Welcome to expreact boilerplate
-    {{/content}}
-{{/extend}}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <link rel="stylesheet" href="/css/style.css" type="text/css">
 
-
+        <meta http-equiv="content-type" name="description" content="">
+        <meta http-equiv="content-type" name="keywords" content="">
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <div id="reactHook"></div>
+        <script src="/lib/system.js"></script>    
+        <script src="/app/config.js"></script>
+        <script>System.import('/app/main/main')</script>
+    </body>
+</html>
