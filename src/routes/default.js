@@ -1,4 +1,5 @@
-let handlebars = require('./../helpers/handlebars');
+let settings = require('./../helpers/settings'),
+    handlebars = require('./../helpers/handlebars');
 
 module.exports = function(app){
 
@@ -7,9 +8,11 @@ module.exports = function(app){
      */
     app.get(/^[^.]+$/, async function (req, res) {
         let view = handlebars.getView('default'),
-            model = {};
+            model = {
+                bundlemode : settings.bundlemode,
+                bundle : settings.bundle
+            };
 
         res.send(view(model));
-
     });
 }

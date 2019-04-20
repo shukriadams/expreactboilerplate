@@ -12,14 +12,12 @@
         <div id="reactHook"></div>
 
         {{#if bundle}}
-            <script src="lib/system.js"></script>
             <script src="scripts/bundle{{bundlemode}}.js"></script>
-            <script src="scripts/config{{bundlemode}}.js"></script>        
         {{else}}
             <script src="/lib/system.js"></script>    
             <script src="/app/config.js"></script>
             <script>System.import('/app/main/main')</script>
         {{/if}}
-        
+
     </body>
 </html>

@@ -1,9 +1,10 @@
-const settings = require('./settings'),
-    MongoClient = require('mongodb').MongoClient,
-    ObjectID = require('mongodb').ObjectID;
-
 const 
 
+    settings = require('./settings'),
+    MongoClient = require('mongodb').MongoClient,
+    ObjectID = require('mongodb').ObjectID,
+
+    
     /** 
      * Gets a mongo collection, and db instance for closing.
      */

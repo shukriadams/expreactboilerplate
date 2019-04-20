@@ -9,8 +9,17 @@ Consists of :
 - Handlebars (server-side templating)
 - Mongodb
 
-## How to 
+## Setup
 
     cd src
     yarn --no-bin-links
     jspm install -y
+
+# Run
+
+    cd src
+    node index
+
+# Build
+
+    sh ./build.sh

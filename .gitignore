@@ -4,3 +4,6 @@
 /src/.env
 /src/client/lib
 /src/client/app/config.js
+.tmp
+/src/public/scripts/bundle.js
+/src/public/scripts/bundle.min.js
