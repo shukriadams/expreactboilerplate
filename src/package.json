@@ -4,7 +4,7 @@
   "description": "Mvc boilerplate. Express + ReactJS. JSPM",
   "repository": "https://github.com/shukriadams/expreactboilerplate",
   "scripts": {
-    "start" : "node index"
+    "start": "node index"
   },
   "dependencies": {
     "fs-extra": "6.0.1",
@@ -13,20 +13,26 @@
     "handlebars": "4.0.11",
     "handlebars-layouts": "3.1.4"
   },
-  "devDependencies": {
-    "babel": "npm:babel-core@5.8.38",
-    "babel-plugin-transform-react-jsx": "npm:babel-plugin-transform-react-jsx@6.24.1",
-    "babel-runtime": "npm:babel-runtime@5.8.38",
-    "classnames": "npm:classnames@2.2.5",
-    "core-js": "npm:core-js@2.5.7",
-    "history": "npm:history@4.7.2",
-    "localforage": "npm:localforage@1.5.6",
-    "react": "npm:react@16.6.3",
-    "react-dom": "npm:react-dom@16.6.3",
-    "react-redux": "npm:react-redux@5.0.6",
-    "react-router-dom": "npm:react-router-dom@4.2.2",
-    "react-router-hash-link": "npm:react-router-hash-link@1.2.0",
-    "redux": "npm:redux@3.7.2",
-    "redux-persist": "npm:redux-persist@5.7.0"
+  "jspm": {
+    "directories": {
+      "baseURL": "client/app",
+      "packages": "client/lib"
+    },
+    "dependencies": {
+      "babel": "npm:babel-core@5.8.38",
+      "babel-plugin-transform-react-jsx": "npm:babel-plugin-transform-react-jsx@6.24.1",
+      "babel-runtime": "npm:babel-runtime@5.8.38",
+      "classnames": "npm:classnames@2.2.5",
+      "core-js": "npm:core-js@2.5.7",
+      "history": "npm:history@4.7.2",
+      "localforage": "npm:localforage@1.5.6",
+      "react": "npm:react@16.6.3",
+      "react-dom": "npm:react-dom@16.6.3",
+      "react-redux": "npm:react-redux@5.0.6",
+      "react-router-dom": "npm:react-router-dom@4.2.2",
+      "react-router-hash-link": "npm:react-router-hash-link@1.2.0",
+      "redux": "npm:redux@3.7.2",
+      "redux-persist": "npm:redux-persist@5.7.0"
+    }
   }
 }

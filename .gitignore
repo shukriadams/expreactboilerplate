@@ -1,5 +1,6 @@
 /vagrant/.vagrant
 /src/node_modules
 /vagrant/ubuntu-xenial-16.04-cloudimg-console.log
-/src/public/scripts/webpack.js
 /src/.env
+/src/client/lib
+/src/client/app/config.js
