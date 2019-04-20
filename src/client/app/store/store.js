@@ -1,16 +1,16 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'localforage';
-import screenshot from './reducers/myReducer';
+import list from './reducers/list';
 
 const persistConfig = {
     key: 'root',
     storage,
-    blacklist : []
+    blacklist : ['list']
 };
 
 let reducers = combineReducers({
-    screenshot
+    list
 });
 
 const persistedReducer = persistReducer( persistConfig, reducers );

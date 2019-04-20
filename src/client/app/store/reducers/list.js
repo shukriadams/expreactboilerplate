@@ -1,13 +1,13 @@
 let defaultState = {
-
+    items: []
 }
 
 export default function screenshot(state = defaultState, action) {
 
     switch (action.type) {
 
-        case 'DO_THING': {
-            return action;
+        case 'POPULATE_LIST': {
+            return Object.assign( { }, state, { items: action.items });
         }
 
         default:{
