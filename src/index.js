@@ -1,11 +1,13 @@
 // apply custom .env settings
 require('custom-env').env();
 
-let Express = require('express'),
+let http = require('http'),
+    Express = require('express'),
     bodyParser = require('body-parser'),
     fs = require('fs'),
     app = Express(),
     settings = require('./helpers/settings'),
+    socket = require('./helpers/socket'),
     path = require('path'),
     defaultRoute = null,
     routeFiles = fs.readdirSync(path.join(__dirname, 'routes'));
@@ -41,7 +43,10 @@ let Express = require('express'),
     app.use(Express.static('./client'));
     app.use(Express.static('./public'));
 
-    app.listen(settings.port);
+    let server = http.createServer(app);
+    server.listen(settings.port);
+    
+    socket.initialize(server);
 
     console.log(`Server listening on port ${settings.port}`);
 })()
