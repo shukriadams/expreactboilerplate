@@ -2,6 +2,7 @@
 require('custom-env').env();
 
 let Express = require('express'),
+    bodyParser = require('body-parser'),
     fs = require('fs'),
     app = Express(),
     settings = require('./helpers/settings'),
@@ -11,6 +12,10 @@ let Express = require('express'),
 
 (async function(){
 
+    // body parser must be loaded before routes
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(bodyParser.json());
+    
     // load routes from all files in /routes folder. These files must return a function that
     // accepts app as arg. Note that route file with name 'default' is reserved and always bound
     // last, this should contain the route that catches all unbound route names and forces them
