@@ -13,7 +13,7 @@ Consists of :
 
     cd src
     yarn --no-bin-links
-    jspm install -y
+    jspm install
 
 # Run
 
@@ -22,4 +22,5 @@ Consists of :
 
 # Build
 
+    cd src
     sh ./build.sh
