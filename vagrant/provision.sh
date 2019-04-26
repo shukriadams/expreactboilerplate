@@ -8,7 +8,7 @@ sudo apt-get install git -y
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install nodejs -y
 
-sudo npm install jspm -g
+sudo npm install jspm@0.16x -g
 sudo npm install yarn -g
 sudo npm install uglify-es -g
 sudo npm install concat-cli -g
