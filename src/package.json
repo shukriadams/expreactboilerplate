@@ -27,7 +27,7 @@
       "babel-plugin-transform-react-jsx": "npm:babel-plugin-transform-react-jsx@6.24.1",
       "babel-runtime": "npm:babel-runtime@5.8.38",
       "classnames": "npm:classnames@2.2.5",
-      "core-js": "npm:core-js@2.5.7",
+      "core-js": "npm:core-js@2.6.5",
       "history": "npm:history@4.7.2",
       "localforage": "npm:localforage@1.5.6",
       "react": "npm:react@16.6.3",
