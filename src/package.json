@@ -17,6 +17,7 @@
     "handlebars-layouts": "3.1.4"
   },
   "jspm": {
+    "registry": "npm",
     "directories": {
       "baseURL": "client/app",
       "packages": "client/lib"
