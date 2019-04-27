@@ -1,12 +1,14 @@
+import Default from './../default/default';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
-import { BrowserRouter, Router, Switch, Route, Link } from 'react-router-dom';
-import { Provider } from 'react-redux'
-import Default from './../default/default';
+import { BrowserRouter, Router, Switch, Route, Link } from 'react-router-dom'
+import createBrowserHistory from 'history/createBrowserHistory'
 import Store from './../store/store'
+import { Provider } from 'react-redux'
+import { populateList } from './../actions/list';
+import socketInitialize from './../helpers/socket';
 
-const history = createBrowserHistory();
+let history = createBrowserHistory();
 
 (async function(){
     ReactDOM.render(
@@ -19,4 +21,9 @@ const history = createBrowserHistory();
         </Router>,
         document.getElementById('reactHook')
     );
+    
+    socketInitialize();
+
+    // do starting data fetches here
+    await populateList()
 }())

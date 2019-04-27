@@ -1,16 +1,23 @@
 // apply custom .env settings
 require('custom-env').env();
 
-let Express = require('express'),
+let http = require('http'),
+    Express = require('express'),
+    bodyParser = require('body-parser'),
     fs = require('fs'),
     app = Express(),
     settings = require('./helpers/settings'),
+    socket = require('./helpers/socket'),
     path = require('path'),
     defaultRoute = null,
     routeFiles = fs.readdirSync(path.join(__dirname, 'routes'));
 
 (async function(){
 
+    // body parser must be loaded before routes
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(bodyParser.json());
+    
     // load routes from all files in /routes folder. These files must return a function that
     // accepts app as arg. Note that route file with name 'default' is reserved and always bound
     // last, this should contain the route that catches all unbound route names and forces them
@@ -36,7 +43,10 @@ let Express = require('express'),
     app.use(Express.static('./client'));
     app.use(Express.static('./public'));
 
-    app.listen(settings.port);
+    let server = http.createServer(app);
+    server.listen(settings.port);
+    
+    socket.initialize(server);
 
     console.log(`Server listening on port ${settings.port}`);
 })()

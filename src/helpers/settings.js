@@ -13,9 +13,16 @@ let settings = {
 for (let property in settings)
     settings[property] = process.env[property] || settings[property];
 
+// use strings because docker-compose doesn't allow bools
+settings.bundle = settings.bundle === 'true' 
+    || settings.bundle === '1' 
+    || settings.bundle === 1;
 
+settings.forceReloadViews = settings.forceReloadViews === 'true' 
+    || settings.forceReloadViews === '1'
+    || settings.forceReloadViews === 1;
 
-settings.bundle = settings.bundle === 'true';
-settings.forceReloadViews = settings.forceReloadViews === 'true';
+if (!settings.bundle)
+    settings.bundlemode = '';
 
 module.exports = settings;

@@ -7,3 +7,7 @@
 .tmp
 /src/public/scripts/bundle.js
 /src/public/scripts/bundle.min.js
+/src/public/css/style.css
+/src/public/scripts/app.js
+/src/yarn-error.log
+/src/public/scripts/app.min.js

@@ -1,11 +1,11 @@
 # Boilerplate
 
-Personal boilerplate, used for client projects.
+Personal boilerplate, used for client projects, built on what I consider best tools and practices.
 
 Consists of :
 - React-Redux
 - Jspm (bundler)
-- Express (server)
+- Express (server) with essential middleware.
 - Handlebars (server-side templating)
 - Mongodb
 
@@ -13,7 +13,7 @@ Consists of :
 
     cd src
     yarn --no-bin-links
-    jspm install -y
+    jspm install
 
 # Run
 
@@ -22,4 +22,5 @@ Consists of :
 
 # Build
 
+    cd src
     sh ./build.sh
