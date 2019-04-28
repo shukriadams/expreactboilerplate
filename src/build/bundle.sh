@@ -1,4 +1,5 @@
-# This script builds the client-side section of project, and places artefacts in /public folder.
+# This script builds the javascript for client-side section of project, and places artefacts in /public folder.
+# It does not build Sass.
 
 # clean and set up work directories
 rm -rf ./.tmp/bundles

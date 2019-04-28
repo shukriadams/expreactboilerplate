@@ -11,7 +11,7 @@ let http = require('http'),
     path = require('path'),
     defaultRoute = null,
     routeFiles = fs.readdirSync(path.join(__dirname, 'routes'));
-
+    
 (async function(){
 
     // body parser must be loaded before routes

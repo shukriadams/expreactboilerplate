@@ -14,6 +14,7 @@
     "clean-css" : "4.2.1",
     "chokidar" : "2.1.5",
     "node-sass": "4.11.0",
+    "cross-spawn": "6.0.5",
     "node-sass-runner": "https://github.com/shukriadams/node-sass-runner.git"
   },
   "dependencies": {
