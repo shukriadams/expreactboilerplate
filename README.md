@@ -23,10 +23,10 @@ Consists of
 # Run
 
     cd src
-    npm run watch
+    npm run dev
     http://localhost:3000
 
-Sass changes will autobuild to CSS, server-side JS changes will auto-restart Express.
+Debugging mode is always on, Sass changes will autobuild to CSS, server-side JS changes will auto-restart Express.
 
 # Build
 
