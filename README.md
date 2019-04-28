@@ -5,13 +5,14 @@ Personal boilerplate, used for client projects, built on what I consider best to
 Consists of 
 
 - Node 10 
-- NPM build runner / watcher
+- Typescript
 - React-Redux
 - Jspm bundler
-- Express server with essential middleware.
+- Express server with essential middleware
 - Handlebars server-side templating
 - Mongodb CRUD
 - Vagrant
+- NPM build runner / watcher
 
 ## Setup
 
