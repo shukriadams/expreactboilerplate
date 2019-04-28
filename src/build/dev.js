@@ -65,6 +65,33 @@ async function handleSassEvent(file){
 }
 
 
+async function handleTSEvent(){
+    return new Promise(function(resolve, reject){
+        try {
+            let child = spawn('npm', ['run', 'ts'], { cwd : process.cwd(), env: process.env });
+    
+            child.stdout.on('data', function (data) {
+                console.log(data.toString('utf8'));
+            });
+                
+            child.stderr.on('data', function (data) {
+                console.log(data.toString('utf8'));
+            });
+        
+            child.on('error', function (err) {
+                return reject(err);
+            });
+            
+            child.on('close', function (code) {
+                resolve();
+            });
+        } catch(ex){
+            reject(ex);
+        }
+    })
+}
+
+
 /** 
  * Starts Express server. If Express is already started, kills the existing process.
  */
@@ -74,7 +101,7 @@ function startExpress(){
         _expressProcess.kill('SIGINT');
     }
 
-    _expressProcess = spawn('node', ['index'], { cwd : process.cwd(), env: process.env });
+    _expressProcess = spawn('node', ['--inspect=0.0.0.0:3001', 'index'], { cwd : process.cwd(), env: process.env });
 
     _expressProcess.stdout.on('data', function (data) {
         console.log(data.toString('utf8'));
@@ -111,8 +138,25 @@ function startExpress(){
             console.log(`processed delete ${file}`);
         });
 
+    // start watching ts files
+    let tsWatcher = chokidar.watch(['./server/ts/**/*.ts'], {
+        persistent: true,
+        usePolling: true
+    });
+
+    tsWatcher
+        .on('add', async function() {
+            await handleTSEvent();
+        })
+        .on('change', async function(){
+            await handleTSEvent();
+        })
+        .on('unlink', async function(){
+            await handleTSEvent();
+        });
+
     // start watching js files in 
-    let expressWatcher = chokidar.watch(['./index.js', './helpers/**/*.js', './routes/**/*.js'], {
+    let expressWatcher = chokidar.watch(['./index.js', './server/**/*.js'], {
         persistent: true,
         usePolling: true,
         ignoreInitial : true,

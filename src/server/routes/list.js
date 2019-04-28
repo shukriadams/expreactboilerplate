@@ -1,10 +1,11 @@
+const  { ModelProvider } = require('./../types/ModelProvider');
+
 module.exports = function(app){
     app.get('/list', async function(req, res){
         try {
-            
-            let model = [
-                'two', 'three'
-            ];
+            const modelProvider = new ModelProvider();
+
+            let model = modelProvider.getModel();
             
             res.send(model);
 

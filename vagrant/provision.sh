@@ -15,6 +15,8 @@ sudo npm install jspm@0.16x -g
 sudo npm install yarn -g
 sudo npm install uglify-es -g
 sudo npm install concat-cli -g
+sudo npm install typescript -g
+sudo npm install tslint -g 
 
 # force github into known hosts so build script can clone without prompt. yes, this is 
 # insecure because it opens for MITM attack, but I don't have anything better right now.
@@ -26,3 +28,5 @@ echo "cd /vagrant/src" >> /home/vagrant/.bashrc
 # set hostname, makes console easier to identify
 sudo echo "expreactboilerplate" > /etc/hostname
 sudo echo "127.0.0.1 expreactboilerplate" >> /etc/hosts
+
+sudo chmod 700 -R /home/vagrant/.ssh
