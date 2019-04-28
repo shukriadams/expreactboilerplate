@@ -2,25 +2,37 @@
 
 Personal boilerplate, used for client projects, built on what I consider best tools and practices.
 
-Consists of :
+Consists of 
+
+- Node 10 
+- NPM build runner / watcher
 - React-Redux
-- Jspm (bundler)
-- Express (server) with essential middleware.
-- Handlebars (server-side templating)
-- Mongodb
+- Jspm bundler
+- Express server with essential middleware.
+- Handlebars server-side templating
+- Mongodb CRUD
+- Vagrant
+
+Still coming 
+
+- Docker build
+- Typescript
 
 ## Setup
 
     cd src
-    yarn --no-bin-links
+    npm install (or "yarn" if in Vagrant on Windows, use "--no-bin-links" too)
     jspm install
 
 # Run
 
     cd src
-    node index
+    npm run watch
+    http://localhost:3000
+
+Sass changes will autobuild to CSS, server-side JS changes will auto-restart Express.
 
 # Build
 
     cd src
-    sh ./build.sh
+    npm run build
