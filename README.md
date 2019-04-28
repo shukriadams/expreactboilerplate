@@ -13,11 +13,6 @@ Consists of
 - Mongodb CRUD
 - Vagrant
 
-Still coming 
-
-- Docker build
-- Typescript
-
 ## Setup
 
     cd src
