@@ -18,10 +18,6 @@
     "cross-spawn": "6.0.5",
     "node-sass-runner": "https://github.com/shukriadams/node-sass-runner.git"
   },
-  "devDependencies" : {
-    "fileconcat" : "2.0.1",
-    "node-sass-runner": "https://github.com/shukriadams/node-sass-runner.git"
-  },  
   "dependencies": {
     "fs-extra": "6.0.1",
     "express": "4.16.3",

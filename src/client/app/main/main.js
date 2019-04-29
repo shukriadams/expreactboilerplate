@@ -7,6 +7,7 @@ import Store from './../store/store'
 import { Provider } from 'react-redux'
 import { populateList } from './../actions/list';
 import socketInitialize from './../helpers/socket';
+import { Layout } from './../layout/layout';
 
 let history = createBrowserHistory();
 
@@ -15,7 +16,9 @@ let history = createBrowserHistory();
         <Router history={history}>
             <Provider store={Store}>
                 <Switch>
-                    <Route exact path="/" component={Default} />
+                    <Layout>
+                        <Route exact path="/" component={Default} />
+                    </Layout>
                 </Switch>
             </Provider>
         </Router>,
