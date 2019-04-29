@@ -7,3 +7,10 @@
 .tmp
 /src/public/scripts/bundle.js
 /src/public/scripts/bundle.min.js
+/src/public/css/style.css
+/src/public/scripts/app.js
+/src/server/types
+/src/yarn-error.log
+/src/public/scripts/app.min.js
+/docker/.clone
+/docker/build.tar.gz

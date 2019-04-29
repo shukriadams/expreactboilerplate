@@ -1,0 +1,24 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "quotemark": [true, "single"],
+        "member-ordering" : [true, {
+            "order": [
+                "private-instance-field",
+                "private-static-field",
+                "public-static-field",
+                "public-instance-field",
+                "private-constructor",
+                "public-constructor",
+                "private-instance-method",
+                "protected-instance-method",
+                "public-instance-method"
+            ]
+        }]
+    },
+    "rulesDirectory": []
+}

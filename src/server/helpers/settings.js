@@ -22,4 +22,7 @@ settings.forceReloadViews = settings.forceReloadViews === 'true'
     || settings.forceReloadViews === '1'
     || settings.forceReloadViews === 1;
 
+if (!settings.bundle)
+    settings.bundlemode = '';
+
 module.exports = settings;

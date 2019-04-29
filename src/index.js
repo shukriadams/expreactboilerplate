@@ -6,12 +6,12 @@ let http = require('http'),
     bodyParser = require('body-parser'),
     fs = require('fs'),
     app = Express(),
-    settings = require('./helpers/settings'),
-    socket = require('./helpers/socket'),
+    settings = require('./server/helpers/settings'),
+    socket = require('./server/helpers/socket'),
     path = require('path'),
     defaultRoute = null,
-    routeFiles = fs.readdirSync(path.join(__dirname, 'routes'));
-
+    routeFiles = fs.readdirSync(path.join(__dirname, 'server', 'routes'));
+    
 (async function(){
 
     // body parser must be loaded before routes
@@ -23,9 +23,10 @@ let http = require('http'),
     // last, this should contain the route that catches all unbound route names and forces them
     // to our Single Page App root page.
     for (let routeFile of routeFiles){
+
         let name = routeFile.match(/(.*).js/).pop();
 
-        let routes = require(`./routes/${name}`);
+        let routes = require(`./server/routes/${name}`);
         if (name === 'default'){
             defaultRoute = routes;
             continue;
@@ -40,7 +41,7 @@ let http = require('http'),
 
     // there are two static folders - client is for single page app, public is 
     // for direct express files
-    app.use(Express.static('./client'));
+    app.use(Express.static('./client')); // for dev only, not available on builds
     app.use(Express.static('./public'));
 
     let server = http.createServer(app);
