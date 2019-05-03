@@ -30,8 +30,11 @@ async function compileSassFile(file){
                 file: file,
                 sourceComments: true
             }, function(err, result){
-                if (err)
+                if (err){
+                    console.log(err);
                     return resolve(err);
+                }
+                    
 
                 const outfile = mapSassToCss(file);
                             
