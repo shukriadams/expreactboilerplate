@@ -18,6 +18,12 @@ let http = require('http'),
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
     
+    // there are two static folders - client is for single page app, public is 
+    // for direct express files
+    // static folders must be defined before routes or routes will override them
+    app.use(Express.static('./client')); // for dev only, not available on builds
+    app.use(Express.static('./public'));
+    
     // load routes from all files in /routes folder. These files must return a function that
     // accepts app as arg. Note that route file with name 'default' is reserved and always bound
     // last, this should contain the route that catches all unbound route names and forces them
@@ -37,12 +43,6 @@ let http = require('http'),
 
     if (defaultRoute)
         defaultRoute(app);
-
-
-    // there are two static folders - client is for single page app, public is 
-    // for direct express files
-    app.use(Express.static('./client')); // for dev only, not available on builds
-    app.use(Express.static('./public'));
 
     let server = http.createServer(app);
     server.listen(settings.port);
