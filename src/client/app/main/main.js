@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import { populateList } from './../actions/list';
 import socketInitialize from './../helpers/socket';
 import { Layout } from './../layout/layout';
+import listWatcher from './../store/watchers/list'; // importing watcher will start it
 
 let history = createBrowserHistory();
 
