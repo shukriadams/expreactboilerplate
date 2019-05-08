@@ -1,4 +1,4 @@
-import Default from './../default/default';
+import { View as Default } from './../default/default';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Router, Switch, Route, Link } from 'react-router-dom'
