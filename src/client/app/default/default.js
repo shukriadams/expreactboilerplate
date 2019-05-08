@@ -31,10 +31,16 @@ class View extends React.Component {
     }
 }
 
-export default connect(
-    function (state) {
+View.defaultProps = {
+
+};
+
+View = connect(
+    function (state, ownProps) {
         return {
             items : state.list.items
         }
     }
 )(View);
+
+export { View };
