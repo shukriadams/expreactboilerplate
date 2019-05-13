@@ -1,4 +1,5 @@
 import { View as Default } from './../default/default';
+import { View as Item } from './../item/item';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Switch, Route, Link } from 'react-router-dom'
@@ -17,6 +18,7 @@ import listWatcher from './../store/watchers/list'; // importing watcher will st
                 <Switch>
                     <Layout>
                         <Route exact path="/" component={Default} />
+                        <Route exact path="/item/:itemId" render={props => <Item {...props.match.params} /> } />                        
                     </Layout>
                 </Switch>
             </Provider>

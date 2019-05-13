@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { populateList } from './../actions/list';
 
@@ -19,7 +20,7 @@ class View extends React.Component {
                         this.props.items.map((item)=>{
                             return(                            
                                 <li key={item}>
-                                    {item}
+                                    <Link to={`/item/${item}`}>{item}</Link>
                                 </li>
                             )
                         })
