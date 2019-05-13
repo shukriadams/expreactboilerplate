@@ -14,7 +14,7 @@ let http = require('http'),
     
 (async function(){
 
-    // body parser must be loaded before routes
+    // middleware must be loaded before routes
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
     
@@ -41,12 +41,14 @@ let http = require('http'),
         routes(app);
     }
 
+    // finally, load default route. This must be bound last because its pattern works
+    // as a catchall for anything that isn't caught by a more specific fixed pattern.
     if (defaultRoute)
         defaultRoute(app);
 
     let server = http.createServer(app);
     server.listen(settings.port);
-    
+
     socket.initialize(server);
 
     console.log(`Server listening on port ${settings.port}`);

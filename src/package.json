@@ -5,15 +5,15 @@
   "repository": "https://github.com/shukriadams/expreactboilerplate",
   "scripts": {
     "start": "node index",
-    "build" : "npm run client && npm run ts && node ./build/build-all-sass",
-    "client" : "sh ./build/bundle.sh",
-    "ts" : "tslint -c tslint.json 'server/**/*.ts' && tsc",
-    "dev" : "node ./build/dev.js"
+    "build": "npm run client && npm run ts && node ./build/build-all-sass",
+    "client": "sh ./build/bundle.sh",
+    "ts": "tslint -c tslint.json 'server/**/*.ts' && tsc",
+    "dev": "node ./build/dev.js"
   },
-  "devDependencies" : {
-    "fileconcat" : "2.0.1",
-    "clean-css" : "4.2.1",
-    "chokidar" : "2.1.5",
+  "devDependencies": {
+    "fileconcat": "2.0.1",
+    "clean-css": "4.2.1",
+    "chokidar": "2.1.5",
     "node-sass": "4.11.0",
     "cross-spawn": "6.0.5",
     "node-sass-runner": "https://github.com/shukriadams/node-sass-runner.git"
@@ -51,6 +51,7 @@
       "redux-persist": "5.7.0",
       "redux-watch": "1.1.1",
       "socket.io-client": "2.1.1"
-    }
+    },
+    "devDependencies": {}
   }
 }
