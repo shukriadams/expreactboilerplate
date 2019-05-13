@@ -1,16 +1,14 @@
 import { View as Default } from './../default/default';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Router, Switch, Route, Link } from 'react-router-dom'
-import createBrowserHistory from 'history/createBrowserHistory'
+import { Router, Switch, Route, Link } from 'react-router-dom'
+import history from './../helpers/history';
 import Store from './../store/store'
 import { Provider } from 'react-redux'
 import { populateList } from './../actions/list';
 import socketInitialize from './../helpers/socket';
 import { Layout } from './../layout/layout';
 import listWatcher from './../store/watchers/list'; // importing watcher will start it
-
-let history = createBrowserHistory();
 
 (async function(){
     ReactDOM.render(
