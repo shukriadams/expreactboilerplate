@@ -5,7 +5,13 @@ class View extends React.Component {
     render(){
         return(
             <Fragment>
-                Item : {this.props.itemId}
+                <h2>Item</h2>
+                <div>
+                    Data :{this.props.data}
+                </div>
+                <div>
+                    ItemId : {this.props.itemId}
+                </div>
             </Fragment>
         );
     }
