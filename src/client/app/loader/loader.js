@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
 
 class View extends React.Component {
 
@@ -10,25 +9,33 @@ class View extends React.Component {
         }
     }
 
-    async componentWillReceiveProps(props){
+    async getData(props){
         let data = await props.action();
         let newState = {};
         newState[props.dataAttribute] = data;
-        this.setState(newState);        
+        this.setState(newState);
+    }
+
+    async componentWillReceiveProps(props){
+        await this.getData(props);
+    }
+
+    async componentDidMount(){
+        await this.getData(this.props);
     }
 
     render(){
         return(
             <Fragment>
                 {
-                    !this.state.data  && 
+                    !this.state[this.props.dataAttribute]   && 
                         <div>
                             Wait for data ...
                         </div>
                 }
 
                 {
-                    this.state.data  && 
+                    this.state[this.props.dataAttribute]   && 
                         <Fragment>
                              {React.cloneElement(this.props.children, this.state)}
                         </Fragment>
@@ -39,8 +46,7 @@ class View extends React.Component {
 }
 
 View.defaultProps = {
-    child : null,
-    dataAttribute : 'myData'
+    dataAttribute : 'myData' // set this to the name of the data data property you want in the child view
 };
 
 export { View };
