@@ -16,7 +16,7 @@
     "chokidar": "2.1.5",
     "node-sass": "4.11.0",
     "cross-spawn": "6.0.5",
-    "node-sass-runner": "https://github.com/shukriadams/node-sass-runner.git"
+    "node-sass-runner": "https://github.com/shukriadams/node-sass-runner.git#0.0.1"
   },
   "dependencies": {
     "fs-extra": "6.0.1",

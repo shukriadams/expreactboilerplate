@@ -5,7 +5,7 @@ Personal boilerplate, used for client projects, built on what I consider best to
 Consists of 
 
 - NodeJS 10 
-- Sass with lightning-fast compiler
+- Sass with lightning-fast targetted compiler
 - Typescript
 - React-Redux
 - Jspm clientside bundler
