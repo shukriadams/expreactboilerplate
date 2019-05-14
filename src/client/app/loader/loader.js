@@ -16,7 +16,6 @@ class View extends React.Component {
     }
 
     render(){
-        const Child = ()=> <div>{this.props.children}</div>        
         return(
             <Fragment>
                 {
@@ -28,9 +27,9 @@ class View extends React.Component {
 
                 {
                     this.state.data  && 
-                        <div>
+                        <Fragment>
                              {React.cloneElement(this.props.children, this.state)}
-                        </div>
+                        </Fragment>
                 }
             </Fragment>
         );
