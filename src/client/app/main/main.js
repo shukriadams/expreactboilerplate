@@ -3,7 +3,7 @@ import { View as Item } from './../item/item';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Switch, Route, Link } from 'react-router-dom'
-import history from './../helpers/history';
+import { history } from './../helpers/history';
 import Store from './../store/store'
 import { Provider } from 'react-redux'
 import { populateList } from './../actions/list';
