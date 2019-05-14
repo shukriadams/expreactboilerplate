@@ -12,19 +12,19 @@ import { Layout } from './../layout/layout';
 import {View as Loader } from './../loader/loader';
 import listWatcher from './../store/watchers/list'; // importing watcher will start it
 
-function doLongThing(){
+function doLongThing(itemId){
     return new Promise(function(resolve,){
         window.setTimeout(()=>{
             resolve({
-                data : 'I work'
+                data : 'I work with ' + itemId
             });
         }, 2000)
 
     })
 }
 
-async function dataLoader(){
-    let data = await doLongThing();
+async function dataLoader(itemId){
+    let data = await doLongThing(itemId);
     return data;
 }
 
@@ -38,7 +38,7 @@ async function dataLoader(){
                     <Layout>
                         <Route exact path="/" component={Default} />
                         <Route exact path="/item/:itemId" render={props => 
-                            <Loader action={dataLoader}>
+                            <Loader dataAttribute="build" action={()=>{ return dataLoader(props.match.params.itemId) }}>
                                 <Item {...props.match.params} /> 
                             </Loader>
                         } />

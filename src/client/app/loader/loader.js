@@ -10,9 +10,11 @@ class View extends React.Component {
         }
     }
 
-    async componentDidMount(){
-        let data = await this.props.action();
-        this.setState(data);
+    async componentWillReceiveProps(props){
+        let data = await props.action();
+        let newState = {};
+        newState[props.dataAttribute] = data;
+        this.setState(newState);        
     }
 
     render(){
@@ -37,15 +39,8 @@ class View extends React.Component {
 }
 
 View.defaultProps = {
-    child : null
+    child : null,
+    dataAttribute : 'myData'
 };
-
-View = connect(
-    function (state, ownProps) {
-        return {
-            
-        }
-    }
-)(View);
 
 export { View };
