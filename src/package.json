@@ -8,7 +8,7 @@
     "build": "npm run client && npm run ts && node ./build/build-all-sass",
     "client": "sh ./build/bundle.sh",
     "ts": "tslint -c tslint.json 'server/**/*.ts' && tsc",
-    "dev": "node ./build/dev.js"
+    "dev": "npm run ts && node ./build/dev.js"
   },
   "devDependencies": {
     "fileconcat": "2.0.1",
@@ -23,7 +23,7 @@
     "express": "4.16.3",
     "body-parser": "1.18.3",
     "custom-env": "1.0.0",
-    "handlebars": "4.0.11",
+    "handlebars": "4.0.14",
     "mongodb": "2.2.28",
     "socket.io": "2.1.1",
     "handlebars-layouts": "3.1.4"
