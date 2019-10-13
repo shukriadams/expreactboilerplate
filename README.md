@@ -20,7 +20,7 @@ Consists of
 
     cd src
     npm install (or "yarn" if in Vagrant on Windows, use "--no-bin-links" too)
-    jspm install
+    jspm install -y
 
 # Run
 
