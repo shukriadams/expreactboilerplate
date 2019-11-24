@@ -11,6 +11,7 @@ import socketInitialize from './../helpers/socket';
 import { Layout } from './../layout/layout';
 import {View as Loader } from './../loader/loader';
 import listWatcher from './../store/watchers/list'; // importing watcher will start it
+import pubsub from './../helpers/pubsub';
 
 function doLongThing(itemId){
     return new Promise(function(resolve,){
@@ -31,26 +32,28 @@ async function dataLoader(itemId){
 
 
 (async function(){
-    ReactDOM.render(
-        <Router history={history}>
-            <Provider store={Store}>
-                <Switch>
-                    <Layout>
-                        <Route exact path="/" component={Default} />
-                        <Route exact path="/item/:itemId" render={props => 
-                            <Loader dataAttribute="build" action={()=>{ return dataLoader(props.match.params.itemId) }}>
-                                <Item {...props.match.params} /> 
-                            </Loader>
-                        } />
-                    </Layout>
-                </Switch>
-            </Provider>
-        </Router>,
-        document.getElementById('reactHook')
-    );
+    pubsub.once('main', 'onRehydrated', async ()=>{
+        ReactDOM.render(
+            <Router history={history}>
+                <Provider store={Store}>
+                    <Switch>
+                        <Layout>
+                            <Route exact path="/" component={Default} />
+                            <Route exact path="/item/:itemId" render={props => 
+                                <Loader dataAttribute="build" action={()=>{ return dataLoader(props.match.params.itemId) }}>
+                                    <Item {...props.match.params} /> 
+                                </Loader>
+                            } />
+                        </Layout>
+                    </Switch>
+                </Provider>
+            </Router>,
+            document.getElementById('reactHook')
+        );
     
-    socketInitialize();
+        socketInitialize();
 
-    // do starting data fetches here
-    await populateList()
+        // do starting data fetches here
+        await populateList()        
+    });
 }())
