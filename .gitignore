@@ -11,6 +11,7 @@
 /src/public/scripts/app.js
 /src/server/types
 /src/yarn-error.log
+/src/yarn.lock
 /src/public/scripts/app.min.js
 /docker/.clone
 /docker/build.tar.gz
