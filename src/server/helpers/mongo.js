@@ -135,7 +135,34 @@ const
         });
     },    
 
+      
+    /**
+     * 
+     */ 
+    findOne = async function(table, query){
+        return new Promise(async function(resolve, reject){
+            try {
+                const mongo = await _getCollection(collectionName);
+                mongo.collection.find(query).toArray(function(err, records){
+                    if (err)
+                        return reject(err);
+                    
+                    mongo.db.close();
+                    if (records.length > 1)
+                        return reject(`One or zero records expected, ${records.length} found`);
 
+                    if (records.length)
+                        return resolve(records[0]);
+                    
+                    resolve(null);
+                });
+            } catch(ex){
+                reject(ex);
+            }
+        });
+    }, 
+
+      
     /**
      * 
      */ 
@@ -203,6 +230,7 @@ const
 
 module.exports = {
     find,
+    findOne,
     distinct,
     aggregate,
     initialize,
