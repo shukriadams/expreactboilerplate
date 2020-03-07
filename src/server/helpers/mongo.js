@@ -49,13 +49,17 @@ const
 
 
     /**
-     * 
-     */ 
-    aggregate = async function(collectionName, query, where){
+     * Args :
+     * table, and then any number of arguments used by mongo's native aggregate method, example "aggregate, where, sort, limit".
+     */
+    aggregate = async function(collectionName, aggregator){
+        // advanced mongo queries are a sequence of objects, ex : aggregator, where, sort, limit, etc. Convert to array so we can do this dynamically
+        let args = Array.from(arguments).slice(1);
+
         return new Promise(async function(resolve, reject){
             try {
                 const mongo = await _getCollection(collectionName);
-                mongo.collection.aggregate(query, where, function(err, records){
+                mongo.collection.aggregate(...args, function(err, records){
                     if (err)
                         return reject(err);
                     
@@ -67,7 +71,7 @@ const
                 reject(ex);
             }
         });
-    },
+    }, 
 
 
     /**
@@ -139,7 +143,7 @@ const
     /**
      * 
      */ 
-    findOne = async function(table, query){
+    findOne = async function(collectionName, query){
         return new Promise(async function(resolve, reject){
             try {
                 const mongo = await _getCollection(collectionName);
