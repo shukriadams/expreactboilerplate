@@ -5,8 +5,8 @@ let settings = {
     port : 3000,
     poolSize : 10,
     bundle: true,
-    bundlemode : '', // ''|.min
-    forceReloadViews : false
+    bundlemode : '',         // ''|.min
+    forceReloadViews : true  // serverside views will be parsed on each page load. good for dev, bad for production
 };
 
 // capture settings from process.env
