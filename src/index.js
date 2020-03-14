@@ -1,5 +1,7 @@
 // apply custom .env settings
 require('custom-env').env();
+// set shortcut global for easier module imports relative to server root directory
+global._$ = `${ __dirname}/server/`;
 
 let http = require('http'),
     Express = require('express'),

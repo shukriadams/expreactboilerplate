@@ -1,5 +1,5 @@
-let settings = require('./../helpers/settings'),
-    handlebars = require('./../helpers/handlebars');
+let settings = require(_$+ 'helpers/settings'),
+    handlebars = require(_$+ 'helpers/handlebars');
 
 module.exports = function(app){
     

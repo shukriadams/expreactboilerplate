@@ -1,4 +1,4 @@
-const  { ModelProvider } = require('./../types/ModelProvider');
+const  { ModelProvider } = require(_$+ 'types/ModelProvider');
 
 module.exports = function(app){
     app.get('/list', async function(req, res){

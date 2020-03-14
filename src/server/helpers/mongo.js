@@ -1,6 +1,6 @@
 const 
 
-    settings = require('./settings'),
+    settings = require(_$+ 'helpers/settings'),
     MongoClient = require('mongodb').MongoClient,
     ObjectID = require('mongodb').ObjectID,
 

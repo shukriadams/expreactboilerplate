@@ -3,7 +3,7 @@ let Handlebars = require('handlebars'),
     pages = null,
     views,
     path = require('path'),
-    settings = require('./settings'),
+    settings = require(_$+ 'helpers/settings'),
     layouts = require('handlebars-layouts');
 
 function findViews(root){
