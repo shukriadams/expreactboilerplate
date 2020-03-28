@@ -5,6 +5,6 @@ services:
     container_name: mycontainer
     restart: unless-stopped
     environment:
-      port : 5001
+      port : 3001
     ports:
     - "3000:3001"
