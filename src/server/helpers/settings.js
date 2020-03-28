@@ -9,18 +9,20 @@ let settings = {
     forceReloadViews : true  // serverside views will be parsed on each page load. good for dev, bad for production
 };
 
-// capture settings from process.env
+// capture settings as env variables
 for (let property in settings)
     settings[property] = process.env[property] || settings[property];
 
-// use strings because docker-compose doesn't allow bools
-settings.bundle = settings.bundle === 'true' 
-    || settings.bundle === '1' 
-    || settings.bundle === 1;
+// env vars don't come in as booleans, force bool
+function toBoolean(name){
+    if(settings[name] === true || settings[name] === 'true' || settings[name] === '1' || settings[name] === 1) 
+        settings[name] = true;
+    else
+        settings[name] = false;
+}
 
-settings.forceReloadViews = settings.forceReloadViews === 'true' 
-    || settings.forceReloadViews === '1'
-    || settings.forceReloadViews === 1;
+toBoolean('bundle');
+toBoolean('forceReloadViews');
 
 if (!settings.bundle)
     settings.bundlemode = '';
