@@ -1,3 +1,5 @@
+# note : $SSH_AUTH_SOCK MUST be defined before running this, else you'll get a "volume name is too short" error.
+# buildTag.sh does this for you.
 version: "2"
 services:
   buildcontainer:
