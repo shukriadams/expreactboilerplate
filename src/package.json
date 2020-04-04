@@ -8,7 +8,8 @@
     "build": "npm run client && npm run ts && node ./build/build-all-sass",
     "client": "sh ./build/bundle.sh",
     "ts": "tslint -c tslint.json 'server/**/*.ts' && tsc",
-    "dev": "npm run ts && node ./build/dev.js"
+    "dev": "npm run ts && node ./build/dev.js",
+    "test": "node tests/run-all.js"
   },
   "devDependencies": {
     "fileconcat": "2.0.1",
